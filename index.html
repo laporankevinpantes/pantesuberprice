@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>PantesMall - Informasi Harga Emas</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="logo">
+          <span class="logo-icon">
+            <img
+              src="https://tokomaspantes.wordpress.com/wp-content/uploads/2021/07/logo-pantes-new-size.png?w=301"
+              alt="Pantes BIP Logo"
+              class="logo-image"
+            />
+          </span>
+          <h1>PantesMall<span> BANDUNG</span></h1>
+        </div>
+
+        <div class="marquee-container">
+          <div class="marquee">
+            <span class="marquee-text" id="marqueeText"
+              >Memuat informasi harga terbaru...</span
+            >
+          </div>
+        </div>
+
+        <div class="datetime">
+          <div id="currentDate"></div>
+          <div id="currentTime"></div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="main-layout">
+        <!-- Kolom Kiri: Harga Emas -->
+        <div class="left-column">
+          <div class="info-box gold-box">
+            <div class="info-header">
+              <div class="title-section">
+                <i class="fas fa-coins header-icon"></i>
+                <h2>HARGA EMAS</h2>
+              </div>
+              <div class="table-nav">
+                <button class="nav-btn prev-btn" data-table="emas">
+                  <i class="fas fa-chevron-left"></i>
+                </button>
+                <span class="page-indicator" id="pageIndicatorEmas">1/1</span>
+                <button class="nav-btn next-btn" data-table="emas">
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
+            </div>
+            <div class="table-responsive" id="priceTableEmas"></div>
+            <div class="auto-rotate-indicator">
+              <i class="fas fa-sync-alt rotate-icon"></i>
+              <span>Auto rotate: 6s</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kolom Tengah: Video/Iklan -->
+        <div class="center-column">
+          <div class="video-container active" id="videoContainer">
+            <div class="video-header">
+              <i class="fas fa-play-circle video-icon"></i>
+              <span>IKLAN PROMO</span>
+            </div>
+            <div class="video-wrapper">
+              <!-- Video akan dimasukkan secara dinamis -->
+            </div>
+            <div class="video-controls">
+              <div class="video-counter" id="videoCounter">1/1</div>
+              <button class="skip-btn" id="skipBtn">
+                <i class="fas fa-forward"></i> Skip
+              </button>
+            </div>
+          </div>
+
+          <!-- Antrian Section -->
+          <div class="info-box antam-box">
+            <div class="info-header">
+              <div class="title-section">
+                <i class="fas fa-gem header-icon"></i>
+                <h2>HARGA ANTAM</h2>
+              </div>
+              <div class="table-nav">
+                <button class="nav-btn prev-btn" data-table="antam">
+                  <i class="fas fa-chevron-left"></i>
+                </button>
+                <span class="page-indicator" id="pageIndicatorAntam">1/1</span>
+                <button class="nav-btn next-btn" data-table="antam">
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
+            </div>
+            <div class="table-responsive" id="priceTableAntam"></div>
+            <div class="auto-rotate-indicator">
+              <i class="fas fa-sync-alt rotate-icon"></i>
+              <span>Auto rotate: 6s</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kolom Kanan: Harga Lotus Archi -->
+        <div class="right-column">
+          <div class="info-box archi-box">
+            <div class="info-header">
+              <div class="title-section">
+                <i class="fas fa-crown header-icon"></i>
+                <h2>HARGA ARCHI</h2>
+              </div>
+              <div class="table-nav">
+                <button class="nav-btn prev-btn" data-table="archi">
+                  <i class="fas fa-chevron-left"></i>
+                </button>
+                <span class="page-indicator" id="pageIndicatorArchi">1/1</span>
+                <button class="nav-btn next-btn" data-table="archi">
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
+            </div>
+            <div class="table-responsive" id="priceTableArchi"></div>
+            <div class="auto-rotate-indicator">
+              <i class="fas fa-sync-alt rotate-icon"></i>
+              <span>Auto rotate: 6s</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h4><i class="fas fa-phone-alt"></i> Kontak Kevin</h4>
+            <ul>
+              <li><i class="fas fa-phone"></i> +62 896 5673 7562</li>
+              <li><i class="fas fa-map-marker-alt"></i> Bandung, Indonesia</li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4><i class="fas fa-share-alt"></i> Sosial Media</h4>
+            <div class="social-links">
+              <a
+                href="https://www.instagram.com/kevinchandramw_"
+                class="social-btn instagram"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="https://wa.me/+6289656737562"
+                class="social-btn whatsapp"
+              >
+                <i class="fab fa-whatsapp"></i>
+              </a>
+              <a href="#" class="social-btn facebook">
+                <i class="fab fa-facebook"></i>
+              </a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h4><i class="fas fa-info-circle"></i> Informasi</h4>
+            <p>Harga update real-time</p>
+            <p>Buka: 10:00 - 22:00 WIB</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            © 2025 <span class="highlight">KEVIN PANTES MALL BANDUNG</span> -
+            All rights reserved
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
